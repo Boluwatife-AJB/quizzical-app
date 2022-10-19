@@ -1,0 +1,86 @@
+VARIABLES :root {
+  --blue-color: #293264;
+}
+
+.App {
+  text-align: center;
+  border: 2px solid seagreen;
+  margin: 5vh auto;
+  height: 90vh;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.yellowBlob {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+}
+
+.blueBlob {
+  width: 30%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.custom__button {
+  outline: none;
+  margin: auto;
+  border-radius: 15px;
+  border: none;
+  width: 193px;
+  height: 52px;
+  background: var(--blue-color);
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* WELCOME PAGE STYLE */
+.app__welcomePage h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue-color);
+  margin-bottom: 5px;
+}
+
+.app__welcomePage p {
+  margin-bottom: 20px;
+  color: var(--blue-color);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.app__welcomePage button {
+  margin-top: 3rem;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+  .App {
+    width: 80%;
+  }
+
+  .custom__button {
+    width: 160px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .App {
+    margin-top: 0;
+    width: 100%;
+    height: 100vh;
+  }
+}
