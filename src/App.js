@@ -1,12 +1,13 @@
 import './App.css';
 import React, { useState } from 'react';
-import WelcomePage from './components/WelcomePage';
+
 import yellowBlob from './assets/yellowBlob.svg';
 import blueBlob from './assets/blueBlob.svg';
 import { IoRocketOutline } from 'react-icons/io5';
 
 import { fetchQuizQuestions } from './api';
 import Questions from './components/Questions';
+import Result from './components/Result';
 const App = () => {
   const [questions, setQuestions] = useState([]);
   const [startQuiz, setStartQuiz] = useState(false);
@@ -25,22 +26,34 @@ const App = () => {
   const startTrivial = async () => {};
   return (
     <div className="App">
-      <img src={yellowBlob} alt="yellowBlob-img" className="yellowBlob" />
       {/* WELCOME PAGE */}
 
       {startQuiz ? (
-        <Questions question="How are you today?" />
+        <div className="app__question-container">
+          <img src={yellowBlob} alt="yellowBlob-img" className="yellowBlob" />
+          <div className="question__container">
+            <Questions question="How are you today?" />
+            <Questions question="What year did Nigeria gain it independence?" />
+            <Questions question="How are you today?" />
+            <Questions question="How are you today?" />
+            <Questions question="How are you today?" />
+            <Result />
+          </div>
+          <img src={blueBlob} alt="blueBlob-img" className="blueBlob" />
+        </div>
       ) : (
-        <div className="app__welcomePage">
-          <h1>Quizzical App</h1>
-          <p>Take a test of 7 question. Test your knowledge capacity.</p>
-          <button className="custom__button" onClick={handleClick}>
-            Start quiz <IoRocketOutline />
-          </button>
+        <div className="app__welcomePage-container">
+          <img src={yellowBlob} alt="yellowBlob-img" className="yellowBlob" />
+          <div className="app__welcomePage">
+            <h1>Quizzical App</h1>
+            <p>Take a test of 7 question. Test your knowledge capacity.</p>
+            <button className="custom__button" onClick={handleClick}>
+              Start quiz <IoRocketOutline />
+            </button>
+          </div>
+          <img src={blueBlob} alt="blueBlob-img" className="blueBlob" />
         </div>
       )}
-
-      <img src={blueBlob} alt="blueBlob-img" className="blueBlob" />
     </div>
   );
 };

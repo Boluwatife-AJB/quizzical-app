@@ -5,6 +5,9 @@
   --white-color: #fff;
   --base-color: #f5f7fb;
   --body-color: #1c1c1c;
+  --light-blue: #4d5b9e;
+  --hover-option: #d6dbf5;
+  --hr-color: #dbdef0;
 }
 
 body {

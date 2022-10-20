@@ -65,6 +65,64 @@
   margin-top: 3rem;
 }
 
+.app__question-container .yellowBlob,
+.blueBlob {
+  width: 15%;
+}
+
+.question__container {
+  /* border: 1px solid firebrick; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Question Card */
+.app__questions {
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.app__questions hr {
+  background-color: var(--hr-color);
+  width: 100%;
+}
+
+.app__question {
+  font-size: 1.4rem;
+  color: var(--blue-color);
+  font-weight: 700;
+  margin: 0;
+}
+
+.app__question-options {
+  border: #222;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.question-option {
+  min-width: 75px;
+  height: 30px;
+  border-radius: 7px;
+  outline: none;
+  font-size: 1rem;
+  color: var(--blue-color);
+  background-color: var(--base-color);
+  border: 0.7px solid var(--light-blue);
+  cursor: pointer;
+}
+
+.question-option:hover {
+  background: var(--hover-option);
+}
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) {
   .App {
