@@ -2,24 +2,22 @@ import './App.css';
 import WelcomePage from './components/WelcomePage';
 import yellowBlob from './assets/yellowBlob.svg';
 import blueBlob from './assets/blueBlob.svg';
+
+import { fetchQuizQuestions } from './api';
 function App() {
-  const getTrivialApi = async function () {
-    const res = await fetch('https://opentdb.com/api.php?amount=7&category=9');
-
-    const data = await res.json();
-
-    const values = data.results;
-
-    const questions = values.map((value) => value.question);
-
-    console.log(questions);
+  const difficulty = {
+    easy: 'easy',
+    medium: 'medium',
+    hard: 'hard',
   };
-
-  getTrivialApi();
+  // console.log(difficulty.medium);
+  console.log(fetchQuizQuestions(7, difficulty.easy));
+  const startTrivial = async () => {};
   return (
     <div className="App">
       <img src={yellowBlob} alt="yellowBlob-img" className="yellowBlob" />
       <WelcomePage />
+      {/* <h1>{question}</h1> */}
       <img src={blueBlob} alt="blueBlob-img" className="blueBlob" />
     </div>
   );

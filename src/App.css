@@ -1,13 +1,10 @@
 /* VARIABLES  */
 
-:root {
-  --blue-color: #293264;
-  --white-color: #fff;
-}
-
 .App {
   text-align: center;
-  border: 2px solid seagreen;
+  border: 2px solid #222;
+  /* border-radius: 15px; */
+  background: var(--base-color);
   margin: 5vh auto;
   height: 90vh;
   width: 50vw;
@@ -46,6 +43,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  cursor: pointer;
 }
 
 /* WELCOME PAGE STYLE */
@@ -70,7 +68,9 @@
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) {
   .App {
-    width: 80%;
+    margin-top: 0;
+    width: 100%;
+    height: 100vh;
   }
 
   .custom__button {
@@ -82,8 +82,7 @@
 
 @media screen and (max-width: 400px) {
   .App {
-    margin-top: 0;
-    width: 100%;
-    height: 100vh;
+    margin: 0;
+    border: none;
   }
 }
