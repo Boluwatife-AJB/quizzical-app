@@ -1,3 +1,5 @@
+import { shuffleArray } from './util';
+
 // export const getTrivialApi = async function () {
 //   const res = await fetch('https://opentdb.com/api.php?amount=7&category=9');
 
@@ -25,6 +27,19 @@ export const fetchQuizQuestions = async (amount, difficulty) => {
   console.log(
     data.results.map((question) => ({
       ...question,
+      options: shuffleArray([
+        ...question.incorrect_answers,
+        question.correct_answer,
+      ]),
     }))
   );
+  const trivial = data.results.map((question) => ({
+    ...question,
+    options: shuffleArray([
+      ...question.incorrect_answers,
+      question.correct_answer,
+    ]),
+  }));
+
+  console.log(trivial);
 };
