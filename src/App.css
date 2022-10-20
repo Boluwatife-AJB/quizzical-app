@@ -76,6 +76,8 @@
   flex-direction: column;
   align-items: center;
   gap: 0;
+  /* padding: 50% 0; */
+  min-height: 100vh;
 }
 
 /* Question Card */
@@ -102,7 +104,7 @@
 }
 
 .app__question-options {
-  border: #222;
+  /* border: #222; */
   display: flex;
   align-items: flex-start;
   gap: 3rem;
@@ -136,11 +138,18 @@
     height: 50px;
     font-size: 1.2rem;
   }
+
+  .app__question-options {
+    gap: 0.8rem;
+  }
 }
 
 @media screen and (max-width: 400px) {
   .App {
     margin: 0;
+
     border: none;
   }
 }
+
+/* TODO: Fix the overflow on mobile screens and tab, pass the questions as props to the question component, make the app mobile responsive, add timer, add counter before start, display the result on another page, show their answer and the corrected answer  */
