@@ -151,5 +151,3 @@
     border: none;
   }
 }
-
-/* TODO: Fix the overflow on mobile screens and tab, pass the questions as props to the question component, make the app mobile responsive, add timer, add counter before start, display the result on another page, show their answer and the corrected answer  */
