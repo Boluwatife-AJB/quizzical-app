@@ -5,38 +5,35 @@ import yellowBlob from './assets/yellowBlob.svg';
 import blueBlob from './assets/blueBlob.svg';
 import { IoRocketOutline } from 'react-icons/io5';
 
-import { fetchQuizQuestions } from './api';
 import Questions from './components/Questions';
 import Result from './components/Result';
+
 const App = () => {
   const [questions, setQuestions] = useState([]);
   const [startQuiz, setStartQuiz] = useState(false);
-  const difficulty = {
-    easy: 'easy',
-    medium: 'medium',
-    hard: 'hard',
-  };
 
   const handleClick = () => {
     setStartQuiz((prevState) => !prevState);
     console.log('Quiz started!');
   };
-
-  console.log(fetchQuizQuestions(7, difficulty.easy));
-  const startTrivial = async () => {};
+  fetch(
+    'https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple'
+  )
+    .then((response) => response.json())
+    .then((data) => setQuestions(data));
   return (
     <div className="App">
-      {/* WELCOME PAGE */}
-
       {startQuiz ? (
         <div className="app__question-container">
           <img src={yellowBlob} alt="yellowBlob-img" className="yellowBlob" />
           <div className="question__container">
-            <Questions question="How are you today?" />
-            <Questions question="What year did Nigeria gain it independence?" />
-            <Questions question="How are you today?" />
-            <Questions question="How are you today?" />
-            <Questions question="How are you today?" />
+            <div className="question__section">
+              <Questions question="How are you today?" />
+              <Questions question="What year did Nigeria gain it independence?" />
+              <Questions question="Who was the first woman to drive a car in Nigeria" />
+              <Questions question="What lead to the historic protest of Nigerian youth on October 2020?" />
+              <Questions question="Who discovered the river Niger?" />
+            </div>
             <Result />
           </div>
           <img src={blueBlob} alt="blueBlob-img" className="blueBlob" />

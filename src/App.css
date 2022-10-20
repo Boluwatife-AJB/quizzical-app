@@ -71,24 +71,38 @@
 }
 
 .question__container {
-  /* border: 1px solid firebrick; */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0;
-  /* padding: 50% 0; */
-  min-height: 100vh;
+  justify-content: center; */
+  height: 90vh;
+  width: 50vw;
+  border: 3px solid gold;
 }
 
 /* Question Card */
+
 .app__questions {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-direction: column;
   width: 100%;
-  padding: 0 5%;
+}
+
+.app__questions:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.question__section {
+  border: 1px solid forestgreen;
   display: flex;
   flex-direction: column;
+  margin: 5% auto;
+  width: 80%;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
 }
 
 .app__questions hr {
@@ -97,17 +111,19 @@
 }
 
 .app__question {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: var(--blue-color);
-  font-weight: 700;
-  margin: 0;
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+  width: 100%;
+  text-align: left;
 }
 
 .app__question-options {
-  /* border: #222; */
   display: flex;
   align-items: flex-start;
-  gap: 3rem;
+  width: 100%;
+  gap: 1rem;
 }
 
 .question-option {
@@ -147,7 +163,6 @@
 @media screen and (max-width: 400px) {
   .App {
     margin: 0;
-
     border: none;
   }
 }
