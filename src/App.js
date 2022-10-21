@@ -7,6 +7,7 @@ import { IoRocketOutline } from 'react-icons/io5';
 
 import Questions from './components/Questions';
 import Result from './components/Result';
+import Sandbox from './components/Sandbox';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
@@ -21,10 +22,13 @@ const App = () => {
   // )
   //   .then((response) => response.json())
   //   .then((data) => setQuestions(data));
+
+  // Test Api
+
   return (
     <div className="App">
-      {/* <pre>{JSON.stringify(setQuestions, null, 2)}</pre> */}
-      {startQuiz ? (
+      <Sandbox />
+      {/* {startQuiz ? (
         <div className="app__question-container">
           <img src={yellowBlob} alt="yellowBlob-img" className="yellowBlob" />
           <div className="question__container">
@@ -51,7 +55,7 @@ const App = () => {
           </div>
           <img src={blueBlob} alt="blueBlob-img" className="blueBlob" />
         </div>
-      )}
+      )} */}
     </div>
   );
 };
