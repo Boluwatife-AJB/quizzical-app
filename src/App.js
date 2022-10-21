@@ -16,13 +16,14 @@ const App = () => {
     setStartQuiz((prevState) => !prevState);
     console.log('Quiz started!');
   };
-  fetch(
-    'https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple'
-  )
-    .then((response) => response.json())
-    .then((data) => setQuestions(data));
+  // fetch(
+  //   'https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple'
+  // )
+  //   .then((response) => response.json())
+  //   .then((data) => setQuestions(data));
   return (
     <div className="App">
+      {/* <pre>{JSON.stringify(setQuestions, null, 2)}</pre> */}
       {startQuiz ? (
         <div className="app__question-container">
           <img src={yellowBlob} alt="yellowBlob-img" className="yellowBlob" />

@@ -149,6 +149,10 @@
     height: 100vh;
   }
 
+  .question__container {
+    width: 100%;
+  }
+
   .custom__button {
     width: 160px;
     height: 50px;
