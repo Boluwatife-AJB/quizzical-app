@@ -22,14 +22,20 @@ const Sandbox = () => {
     question.id = nanoid();
   });
 
-  // console.log(questions);
+  const shuffleArray = (array) => [array].sort(() => Math.random() - 0.5);
 
   return (
     <div>
       {questions.map((question) => {
         return (
           <div className="question__card" key={question.id}>
-            <p>{question.question}</p>
+            <h3>{question.question}</h3>
+            <p>
+              {shuffleArray([
+                ...question.incorrect_answers,
+                question.correct_answer,
+              ])}
+            </p>
           </div>
         );
       })}

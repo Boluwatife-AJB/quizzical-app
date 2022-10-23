@@ -79,6 +79,10 @@
   height: 90vh;
   width: 50vw;
   border: 3px solid gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* Question Card */
@@ -99,7 +103,7 @@
   border: 1px solid forestgreen;
   display: flex;
   flex-direction: column;
-  margin: 5% auto;
+  margin: 0 auto;
   width: 80%;
   align-items: center;
   justify-content: center;
@@ -150,6 +154,10 @@
   }
 
   .question__container {
+    width: 100%;
+  }
+
+  .question__section {
     width: 100%;
   }
 

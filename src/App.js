@@ -1,13 +1,12 @@
 import './App.css';
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid';
 import yellowBlob from './assets/yellowBlob.svg';
 import blueBlob from './assets/blueBlob.svg';
 import { IoRocketOutline } from 'react-icons/io5';
-
 import Questions from './components/Questions';
 import Result from './components/Result';
-import Sandbox from './components/Sandbox';
+// import Sandbox from './components/Sandbox';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
@@ -17,28 +16,49 @@ const App = () => {
     setStartQuiz((prevState) => !prevState);
     console.log('Quiz started!');
   };
-  // fetch(
-  //   'https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple'
-  // )
-  //   .then((response) => response.json())
-  //   .then((data) => setQuestions(data));
 
-  // Test Api
+  useEffect(() => {
+    console.log('useEffect Ran!');
+    fetch(
+      'https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple'
+    )
+      .then((res) => res.json())
+      .then((data1) => {
+        console.log(data1.results);
+        setQuestions(data1.results);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  questions.map((question) => {
+    return (question.id = nanoid());
+  });
+
+  const shuffleArray = (array) => [array].sort(() => Math.random() - 0.5);
 
   return (
     <div className="App">
-      <Sandbox />
-      {/* {startQuiz ? (
+      {/* <Sandbox /> */}
+      {startQuiz ? (
         <div className="app__question-container">
           <img src={yellowBlob} alt="yellowBlob-img" className="yellowBlob" />
           <div className="question__container">
-            <div className="question__section">
-              <Questions question="How are you today?" />
-              <Questions question="What year did Nigeria gain it independence?" />
-              <Questions question="Who was the first woman to drive a car in Nigeria" />
-              <Questions question="What lead to the historic protest of Nigerian youth on October 2020?" />
-              <Questions question="Who discovered the river Niger?" />
-            </div>
+            {questions.map((question) => {
+              return (
+                <div className="question__section" key={nanoid()}>
+                  <Questions
+                    question={question.question}
+                    options={shuffleArray([
+                      ...question.incorrect_answers,
+                      question.correct_answer,
+                    ])}
+                  />
+                </div>
+              );
+            })}
+
             <Result />
           </div>
           <img src={blueBlob} alt="blueBlob-img" className="blueBlob" />
@@ -55,7 +75,7 @@ const App = () => {
           </div>
           <img src={blueBlob} alt="blueBlob-img" className="blueBlob" />
         </div>
-      )} */}
+      )}
     </div>
   );
 };

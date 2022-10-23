@@ -1,13 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-const Questions = ({ question, answer, callback, userAnswer }) => {
-  const options = {
-    option1: 'Blue',
-    option2: 'Black',
-    option3: 'Brown',
-    option4: 'Green',
-    id: nanoid(),
-  };
+const Questions = ({ question, options }) => {
   // const optionOutput = options.map((options) => console.log(option1));
 
   // const handleClick = (e, key) => {
@@ -19,34 +12,16 @@ const Questions = ({ question, answer, callback, userAnswer }) => {
     <div className="app__questions">
       <p className="app__question">{question}</p>
       <div className="app__question-options">
-        <button
-          className="question-option"
-          // onClick={handleClick}
-          key={options.id}
-        >
-          Blue
-        </button>
-        <button
-          className="question-option"
-          // onClick={handleClick}
-          key={options.id}
-        >
-          Green
-        </button>
-        <button
-          className="question-option"
-          // onClick={handleClick}
-          key={options.id}
-        >
-          Crimson
-        </button>
-        <button
-          className="question-option"
-          // onClick={handleClick}
-          key={options.id}
-        >
-          Brown
-        </button>
+        {options.map((option) => {
+          return option.map((item) => {
+            // console.log(item);
+            return (
+              <button className="question-option" key={nanoid()}>
+                {item}
+              </button>
+            );
+          });
+        })}
       </div>
       <hr />
     </div>
